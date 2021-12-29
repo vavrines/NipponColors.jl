@@ -3,9 +3,22 @@ module NipponColors
 using Colors
 using PyCall
 
-export dict_color
+export plot_color, dict_color
 
 const dirc = @__DIR__
+
+function plot_color()
+    c = (
+        ro = colorant"rgb(12,12,12)",
+        sora = colorant"rgb(88,178,220)",
+        ukon = colorant"rgb(239,187,36)",
+        nae = colorant"rgb(134,192,102)",
+        kohbai = colorant"rgb(225,107,140)",
+        fujimurasaki = colorant"rgb(138,107,190)",
+    )
+    
+    return c
+end
 
 function dict_color(file::AbstractString = "$(dirc)/../assets/nippon.json"; mode = :hex)
     dn = dict_name(file; mode = mode)
@@ -15,7 +28,7 @@ function dict_color(file::AbstractString = "$(dirc)/../assets/nippon.json"; mode
 end
 
 function hex(D::AbstractDict)
-    dict = Dict{String, RGB}()
+    dict = Dict{String,RGB}()
     for iter in eachindex(D.keys)
         try
             k = D.keys[iter]
@@ -30,7 +43,7 @@ function hex(D::AbstractDict)
 end
 
 function rgb(D::AbstractDict)
-    dict = Dict{String, RGB}()
+    dict = Dict{String,RGB}()
     for iter in eachindex(D.keys)
         try
             k = D.keys[iter]
@@ -76,7 +89,7 @@ function dict_name(file = "$(dirc)/../assets/nippon.json"; mode = :hex)
 end
 
 function hex(list)
-    dict = Dict{String, String}()
+    dict = Dict{String,String}()
     for ele in list
         dict[ele["romanji"]] = ele["hex"]
         dict[ele["kanji"]] = ele["hex"]
@@ -86,7 +99,7 @@ function hex(list)
 end
 
 function rgb(list)
-    dict = Dict{String, Vector}()
+    dict = Dict{String,Vector}()
     for ele in list
         dict[ele["romanji"]] = ele["rgb"]
         dict[ele["kanji"]] = ele["rgb"]
