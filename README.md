@@ -1,5 +1,7 @@
 # NipponColors.jl
 
+ ![CI](https://img.shields.io/github/workflow/status/vavrines/NipponColors.jl/CI?style=flat-square)
+ 
 A smallish package to generate colors in traditional Japanese color system.
 See [日本の伝統色](https://nipponcolors.com/) for a complete list of colors.
 Both Roman and Kanji names are supported.
