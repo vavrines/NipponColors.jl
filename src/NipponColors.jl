@@ -69,9 +69,6 @@ function dict_name(file = "$(dirc)/../assets/nippon.json"; mode = :hex)
 
         return dict_list
     """
-
-    @show file
-
     list = py"convert_json"(file)
     fn = eval(mode)
 
