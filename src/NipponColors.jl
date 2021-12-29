@@ -5,7 +5,9 @@ using PyCall
 
 export dict_color
 
-function dict_color(file::AbstractString = "assets/nippon.json"; mode = :hex)
+const dirc = @__DIR__
+
+function dict_color(file::AbstractString = "$(dirc)/../assets/nippon.json"; mode = :hex)
     dn = dict_name(file; mode = mode)
     fn = eval(mode)
 
@@ -42,7 +44,7 @@ function rgb(D::AbstractDict)
     return dict
 end
 
-function dict_name(file = "assets/nippon.json"; mode = :hex)
+function dict_name(file = "$(dirc)/../assets/nippon.json"; mode = :hex)
     py"""
     from json import load
 
@@ -67,6 +69,9 @@ function dict_name(file = "assets/nippon.json"; mode = :hex)
 
         return dict_list
     """
+
+    @show file
+
     list = py"convert_json"(file)
     fn = eval(mode)
 
