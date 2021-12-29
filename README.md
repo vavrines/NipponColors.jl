@@ -24,4 +24,4 @@ plot(x, sin.(2π .* x), color = D["mizu"])
 plot!(x, cos.(2π .* x), color = D["梔子"])
 ```
 
-![]("./assets/plot.png")
+<img src="https://i.postimg.cc/Bv3sR69g/plot.png" width="550"/>
