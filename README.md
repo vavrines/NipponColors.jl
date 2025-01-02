@@ -13,7 +13,7 @@ NipponColors.jl can be installed with the Julia package manager. From the Julia 
 
 ```julia
 julia> ]
-(v1.6) pkg> add NipponColors
+(v1.11) pkg> add NipponColors
 ```
 
 ## Example
